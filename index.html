@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+.brand-grid {
+  display: grid;
+  margin: 10px;
+  padding-left: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+  gap: 10px;
+  margin-bottom: 10px;
+}
+ 
+.collapsed {
+  display: none;
+}
+
+.brand-list {
+  display: grid;
+  margin: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 458px));
+  padding-left: 20px;
+  gap: 11px;
+}
+
+#toggle-button {
+  background-color: #fff;
+  border: none;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#toggle-text {
+  margin-left: 10px;
+}
+
+.brand-card {
+  border: 1px solid #eee;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-card img {
+  max-height: 40px;
+}
+
+.brand-logo {
+  max-height: 40px;
+  max-width: 100px;
+}
+
+.arrow-button {
+  background-color: #fff;
+  border: 2px solid #f06ca3;
+  border-radius: 50%;
+  font-size: 21px;
+  width: 27px;
+  height: 27px;
+  color: #f06ca3;
+  text-align: center;
+  line-height: 26px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.arrow-button:hover {
+  background-color: #ff2b8a;
+  color: #fff;
+}
+
+#toggle-icon {
+  margin-left: 20px;
+  margin-bottom: 3px;
+  vertical-align:middle;
+}
+</style>
+<body>
+  <div class="brand-grid">
+    <div class="brand-card"><img class="brand-logo" src="img/Bitmap.png" alt="Lenovo"><div class="arrow-button">></div></div>
+    <div class="brand-card"><img class="brand-logo" src="img/samsung.png" alt="Samsung"><div class="arrow-button">></div></div>
+    <div class="brand-card"><img class="brand-logo" src="img/Apple.png" alt="Apple"><div class="arrow-button">></div></div>
+    <div class="brand-card"><img class="brand-logo" src="img/Viewsonic.png" alt="ViewSonic"><div class="arrow-button">></div></div>
+    <div class="brand-card"><img class="brand-logo" src="img/Bosch.png" alt="Bosch"><div class="arrow-button">></div></div>
+    <div class="brand-card"><img class="brand-logo" src="img/Hp.png" alt="HP"><div class="arrow-button">></div></div>
+    <div class="brand-card"><img class="brand-logo" src="img/Acer.png" alt="Acer"><div class="arrow-button">></div></div>
+    <div class="brand-card"><img class="brand-logo" src="img/Sony.png " alt="Sony"><div class="arrow-button">></div></div>
+  </div>
+    <div class="collapsed" id="brand-list">
+    <div class="brand-card"><img class="brand-logo" src="img/Bitmap.png" alt="Lenovo"><div class="arrow-button">></div></div>
+    <div class="brand-card"><img class="brand-logo" src="img/samsung.png" alt="Samsung"><div class="arrow-button">></div></div>
+    <div class="brand-card"><img class="brand-logo" src="img/Apple.png" alt="Apple"><div class="arrow-button">></div></div>
+  </div>
+
+  <button id="toggle-button">
+    <img id="toggle-icon" src="img/thrt.png" alt="Показать все"/>
+    <span id="toggle-text">Показать все</span>
+  </button>
+  
+  <script>
+    const toggleButton = document.getElementById('toggle-button');
+    const toggleText = document.getElementById('toggle-text');
+    const toggleIcon = document.getElementById('toggle-icon');
+    const brandList = document.getElementById('brand-list');
+
+  toggleButton.addEventListener('click', () => {
+    const isExpanded = brandList.classList.contains('expanded');
+  
+  brandList.classList.toggle('expanded');
+  brandList.classList.toggle('brand-list');
+  
+  toggleText.textContent = isExpanded ? 'Показать все' : 'Скрыть';
+  toggleIcon.src = isExpanded ? 'img/thrt.png' : 'img/expand.png';
+  toggleIcon.alt = isExpanded ? 'Показать все' : 'Скрыть';
+});
+</script>
+
+</body>
+</html>
